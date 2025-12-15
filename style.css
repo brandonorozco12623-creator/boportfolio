@@ -1,0 +1,922 @@
+/* ============================================
+   BRANDON OROZCO - AI CONSULTANT PORTFOLIO
+   Notan-Swiss Design System - Consolidated
+   ============================================ */
+
+/* ============================================
+   1. CSS RESET
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  color: #000000;
+  background-color: #0f0f1e;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Background Canvas */
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#canvas-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Ensure all content sits above background */
+main,
+nav,
+footer,
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   2. DESIGN TOKENS & VARIABLES
+   ============================================ */
+
+:root {
+  /* Colors - Notan Palette */
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-blue: #003D7A;
+  
+  /* Supporting Grays */
+  --color-gray-dark: #1A1A1A;
+  --color-gray-mid: #666666;
+  --color-gray-light: #F5F5F5;
+  
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  
+  /* Type Scale - Reduced */
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
+  --font-size-48: 3rem;
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  
+  /* Spacing - 8px Base */
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-96: 6rem;
+  --space-128: 8rem;
+  
+  /* Layout */
+  --container-max: 1200px;
+  --container-padding: 1.5rem;
+  --nav-height: 80px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  
+  /* Z-index */
+  --z-nav: 100;
+  --z-modal: 1000;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-48: 2rem;
+    --font-size-32: 1.75rem;
+    --space-128: 4rem;
+    --space-96: 3rem;
+    --container-padding: 1rem;
+  }
+}
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================ */
+
+h1 {
+  font-size: var(--font-size-48);
+  font-weight: var(--font-weight-black);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+p {
+  max-width: 65ch;
+  line-height: 1.7;
+  font-size: var(--font-size-16);
+}
+
+.lead {
+  font-size: var(--font-size-18);
+  line-height: 1.7;
+  color: var(--color-gray-mid);
+}
+
+.caption {
+  font-size: var(--font-size-14);
+  line-height: 1.5;
+  color: var(--color-gray-mid);
+}
+
+/* ============================================
+   4. LAYOUT SYSTEM
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding: var(--space-96) 0;
+  position: relative;
+}
+
+.section-large {
+  padding: var(--space-128) 0;
+}
+
+/* Notan Section Variants */
+.section-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.section-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.section-gray {
+  background-color: var(--color-gray-light);
+  color: var(--color-black);
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-24);
+}
+
+.col-span-4 { grid-column: span 4; }
+.col-span-6 { grid-column: span 6; }
+.col-span-8 { grid-column: span 8; }
+.col-span-10 { grid-column: span 10; }
+.col-span-12 { grid-column: span 12; }
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-24 { gap: var(--space-24); }
+.gap-48 { gap: var(--space-48); }
+
+/* Spacing Utilities */
+.mt-32 { margin-top: var(--space-32); }
+.mt-48 { margin-top: var(--space-48); }
+.mb-16 { margin-bottom: var(--space-16); }
+.mb-24 { margin-bottom: var(--space-24); }
+.mb-32 { margin-bottom: var(--space-32); }
+.mb-48 { margin-bottom: var(--space-48); }
+
+/* ============================================
+   5. NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid var(--color-black);
+  transition: transform var(--transition-base);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+.nav-logo {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-black);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: var(--space-24);
+}
+
+/* Swiss-style geometric accent on logo */
+.nav-logo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-blue);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-48);
+}
+
+.nav-link {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  position: relative;
+  padding: var(--space-8) 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--color-blue);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.nav-toggle-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-black);
+  transition: all var(--transition-base);
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .nav-toggle-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ============================================
+   6. BUTTONS
+   ============================================ */
+
+.btn {
+  display: inline-block;
+  padding: var(--space-16) var(--space-48);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border-color: var(--color-blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #A8B899;
+  border: 3px solid #A8B899;
+}
+
+.btn-outline:hover {
+  background-color: #A8B899;
+  color: #0f0f1e;
+}
+
+.btn-outline-light {
+  color: var(--color-white);
+  border: 3px solid var(--color-white);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* ============================================
+   7. HERO SECTION
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--nav-height);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.hero .container {
+  background: rgba(15, 15, 30, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-64);
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Swiss-style geometric decoration */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border: 40px solid rgba(255, 255, 255, 0.05);
+  transform: rotate(15deg);
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background-color: var(--color-blue);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.hero-headline {
+  margin-bottom: var(--space-48);
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-48);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-image {
+  flex-shrink: 0;
+  width: 250px;
+  height: 250px;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-subheading {
+  font-size: var(--font-size-16);
+  line-height: 1.7;
+  margin-bottom: var(--space-32);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-24);
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   8. ABOUT SECTION
+   ============================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-64);
+  align-items: start;
+}
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--color-gray-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: var(--font-size-14);
+  position: relative;
+  border: 4px solid var(--color-white);
+}
+
+/* Swiss-style section number */
+.section-number {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  font-size: 120px;
+  font-weight: var(--font-weight-black);
+  color: var(--color-gray-light);
+  line-height: 1;
+  z-index: 0;
+}
+
+.section-black .section-number {
+  color: var(--color-gray-dark);
+}
+
+.about-content {
+  position: relative;
+}
+
+.about-content h2 {
+  margin-bottom: var(--space-32);
+}
+
+.about-content p {
+  margin-bottom: var(--space-24);
+}
+
+/* Expertise Grid */
+.expertise-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  margin-top: var(--space-48);
+}
+
+.expertise-item {
+  padding: var(--space-24);
+  background-color: var(--color-gray-dark);
+  position: relative;
+  border-left: 4px solid var(--color-blue);
+}
+
+.expertise-item h3 {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-8);
+  color: var(--color-white);
+}
+
+.expertise-item .caption {
+  color: var(--color-gray-light);
+}
+
+/* ============================================
+   9. SERVICES SECTION
+   ============================================ */
+
+.card-notan {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-48);
+  transition: transform var(--transition-base);
+  position: relative;
+  border: 4px solid var(--color-black);
+}
+
+.card-notan:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-blue);
+}
+
+/* Swiss geometric accent */
+.card-notan::before {
+  content: '';
+  position: absolute;
+  top: var(--space-24);
+  right: var(--space-24);
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--color-blue);
+  opacity: 0.3;
+}
+
+.card-notan h3 {
+  margin-bottom: var(--space-16);
+  position: relative;
+  z-index: 1;
+}
+
+.card-notan p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   10. CONTACT SECTION
+   ============================================ */
+
+/* Contact Page Styles */
+.contact-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--nav-height);
+  padding-bottom: var(--space-96);
+  position: relative;
+  color: var(--color-white);
+}
+
+.contact-page .container {
+  background: rgba(15, 15, 30, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-64);
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-layout {
+  display: flex;
+  gap: var(--space-48);
+  align-items: flex-start;
+}
+
+.contact-text {
+  flex: 0 0 350px;
+  text-align: left;
+}
+
+.contact-page h1,
+.contact-page h2 {
+  color: var(--color-white);
+}
+
+.contact-page .lead {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.calendly-embed {
+  flex: 1;
+  min-width: 0;
+}
+
+.calendly-embed iframe {
+  border-radius: 0;
+  background-color: var(--color-white);
+}
+
+/* ============================================
+   11. FOOTER
+   ============================================ */
+
+footer {
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  padding: var(--space-48) 0;
+  color: var(--color-white);
+}
+
+/* ============================================
+   11. SWISS-STYLE DIVIDERS
+   ============================================ */
+
+.section-divider {
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: var(--space-64) 0;
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -6px;
+  width: 100px;
+  height: 15px;
+  background-color: var(--color-blue);
+  opacity: 0.4;
+}
+
+/* ============================================
+   12. RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .col-span-8,
+  .col-span-10 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile Navigation */
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    border-bottom: 3px solid var(--color-black);
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-24);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all var(--transition-base);
+    pointer-events: none;
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .nav-link {
+    width: 100%;
+    padding: var(--space-16) 0;
+    border-bottom: 1px solid var(--color-gray-light);
+  }
+  
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  /* Mobile Layout */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .col-span-4,
+  .col-span-6,
+  .col-span-8,
+  .col-span-10,
+  .col-span-12 {
+    grid-column: span 1;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-48);
+  }
+  
+  .expertise-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+    gap: var(--space-32);
+  }
+  
+  .hero-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero::before {
+    width: 200px;
+    height: 200px;
+    border-width: 20px;
+  }
+  
+  .section {
+    padding: var(--space-64) 0;
+  }
+  
+  .section-number {
+    font-size: 80px;
+    top: -30px;
+  }
+}
+
+/* ============================================
+   13. ACCESSIBILITY
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  padding: var(--space-16) var(--space-24);
+  z-index: var(--z-modal);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 4px;
+}
+
+::selection {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   14. PRINT STYLES
+   ============================================ */
+
+@media print {
+  .nav,
+  .skip-link,
+  .nav-toggle {
+    display: none;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding-top: 0;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
