@@ -816,6 +816,61 @@ p {
 }
 
 /* ============================================
+   ABOUT ME PAGE STYLES
+   ============================================ */
+
+.about-page {
+  min-height: 100vh;
+  padding-top: calc(var(--nav-height) + var(--space-64));
+  padding-bottom: var(--space-96);
+  color: var(--color-white);
+}
+
+.about-page .page-title {
+  text-align: center;
+  margin-bottom: var(--space-64);
+  color: var(--color-white);
+  font-size: var(--font-size-48);
+}
+
+.resume-container {
+  background: rgba(15, 15, 30, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-48);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: var(--space-64);
+  text-align: center;
+}
+
+.resume-image {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+.about-description {
+  background: rgba(15, 15, 30, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-48);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.about-description p {
+  margin-bottom: var(--space-24);
+  font-size: var(--font-size-16);
+}
+
+.about-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
    COOKIE CONSENT BANNER
    ============================================ */
 
@@ -1152,6 +1207,34 @@ footer {
   .blog-page {
     min-height: 100vh;
     padding: calc(var(--nav-height) + var(--space-48)) var(--space-16) var(--space-64);
+  }
+  
+  /* About Page Mobile */
+  .about-page {
+    padding: calc(var(--nav-height) + var(--space-32)) var(--space-16) var(--space-64);
+  }
+  
+  .about-page .page-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-48);
+  }
+  
+  .resume-container {
+    padding: var(--space-24);
+    margin-bottom: var(--space-48);
+  }
+  
+  .resume-image {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .about-description {
+    padding: var(--space-24);
+  }
+  
+  .about-description p {
+    font-size: 0.9375rem;
   }
   
   .blog-page .page-title {
