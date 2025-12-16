@@ -870,7 +870,8 @@ p {
 
 .about-description p {
   margin-bottom: var(--space-24);
-  font-size: var(--font-size-16);
+  font-size: 18px;
+  line-height: 1.9;
 }
 
 .about-description p:last-child {
