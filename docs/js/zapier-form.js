@@ -26,9 +26,18 @@ document.addEventListener('DOMContentLoaded', function() {
             email: document.getElementById('email').value.trim(),
             company: document.getElementById('company').value.trim(),
             message: document.getElementById('message').value.trim(),
+            consent: document.getElementById('consent')?.checked || false,
             timestamp: new Date().toISOString(),
             source: 'Portfolio Website - Contact Form'
         };
+        
+        // Validate consent checkbox
+        const consentCheckbox = document.getElementById('consent');
+        if (consentCheckbox && !consentCheckbox.checked) {
+            showStatus('Please agree to the Privacy Policy to continue.', 'error');
+            resetButton();
+            return;
+        }
         
         // Validate email format
         if (!validateEmail(formData.email)) {

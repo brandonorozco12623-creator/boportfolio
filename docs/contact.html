@@ -117,8 +117,18 @@
                                 aria-required="true"
                                 placeholder="Tell me about your project..."></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary" id="form-submit-btn">
+                                                <div class="form-group form-checkbox">
+                            <input 
+                                type="checkbox" 
+                                id="consent" 
+                                name="consent" 
+                                required 
+                                aria-required="true">
+                            <label for="consent">
+                                I agree to be contacted and consent to the collection and use of my information as described in the <a href="privacy.html" style="color: #A8B899; text-decoration: underline;">Privacy Policy</a>. *
+                            </label>
+                        </div>
+                                                <button type="submit" class="btn btn-primary" id="form-submit-btn">
                             Send Message
                         </button>
                         
@@ -158,6 +168,7 @@
                     <a href="about.html" class="caption">About Me</a>
                     <a href="blog.html" class="caption">Blog</a>
                     <a href="contact.html" class="caption">Contact</a>
+                    <a href="privacy.html" class="caption">Privacy Policy</a>
                 </div>
             </div>
         </div>
@@ -167,7 +178,7 @@
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <p class="cookie-text">
-                This website uses cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies.
+                This website uses cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies. Learn more in our <a href="privacy.html" style="color: #A8B899; text-decoration: underline;">Privacy Policy</a>.
             </p>
             <div class="cookie-buttons">
                 <button id="cookie-accept" class="btn btn-primary">Accept</button>

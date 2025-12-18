@@ -1716,3 +1716,182 @@ footer {
     color: black;
   }
 }
+
+/* ============================================
+   FORM CHECKBOX STYLES
+   ============================================ */
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-24);
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--color-blue);
+}
+
+.form-checkbox label {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-checkbox label a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.form-checkbox label a:hover {
+  color: var(--color-white);
+}
+
+/* ============================================
+   PRIVACY PAGE STYLES
+   ============================================ */
+
+.privacy-page {
+  padding: calc(var(--nav-height) + var(--space-64)) var(--space-16) var(--space-96);
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.privacy-page .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: var(--space-48);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.privacy-page .page-title {
+  color: var(--color-white);
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-48);
+  text-align: left;
+}
+
+.privacy-meta {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-32);
+  font-size: 1rem;
+}
+
+.privacy-intro {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-48);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.privacy-section-title {
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-24);
+  padding-bottom: var(--space-16);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.privacy-subsection-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--font-size-xl);
+  margin-top: var(--space-32);
+  margin-bottom: var(--space-16);
+}
+
+.privacy-text {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-24);
+  line-height: 1.8;
+}
+
+.privacy-page ul,
+.privacy-page ol {
+  margin-left: var(--space-32);
+  margin-bottom: var(--space-24);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+}
+
+.privacy-page li {
+  margin-bottom: var(--space-12);
+}
+
+.privacy-link {
+  color: var(--color-blue);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacy-link:hover {
+  color: var(--color-accent);
+}
+
+.privacy-contact-box {
+  padding: var(--space-24);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-48);
+}
+
+.privacy-contact-box p {
+  margin-bottom: var(--space-12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.privacy-contact-box p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.privacy-contact-link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.privacy-cta {
+  text-align: center;
+  margin-top: var(--space-64);
+}
+
+.cookie-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.cookie-link:hover {
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .privacy-page .container {
+    padding: var(--space-32) var(--space-24);
+  }
+  
+  .privacy-page .page-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .privacy-section-title {
+    font-size: var(--font-size-xl);
+  }
+}
