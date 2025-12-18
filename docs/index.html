@@ -20,17 +20,16 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
-    <!-- Stylesheet - Consolidated for reliability -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- p5.js Library - MIT License - https://p5js.org -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-    
-    <!-- Font Awesome - Free Version - https://fontawesome.com -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet - Consolidated for Performance -->
+    <link rel="stylesheet" href="css/consolidated.css">
+    
+    <!-- Font Awesome - Async Load -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
 </head>
 <body>
     <!-- Animated Background Canvas -->
@@ -74,7 +73,7 @@
                 </h1>
                 <div class="hero-content">
                     <div class="hero-image">
-                        <img src="images/brandon-profile.jpg" alt="Brandon Orozco - AI Website Developer">
+                        <img src="images/brandon-profile.jpg" alt="Brandon Orozco - AI Website Developer" loading="eager" width="600" height="600">
                     </div>
                     <div class="hero-text">
                         <p class="hero-subheading">
@@ -120,10 +119,13 @@
         </div>
     </div>
     
-    <!-- JavaScript -->
-    <script src="js/background.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/cookies.js"></script>
+    <!-- p5.js Library - Deferred for Performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js" defer></script>
+    
+    <!-- JavaScript - Deferred for Performance -->
+    <script src="js/background.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/cookies.js" defer></script>
 </body>
 </html>
