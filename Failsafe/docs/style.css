@@ -25,7 +25,7 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   font-size: 18px;
   color: #000000;
   background-color: #0f0f1e;
@@ -117,7 +117,7 @@ footer,
   --color-gray-light: #F5F5F5;
   
   /* Typography */
-  --font-primary: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-primary: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   
   /* Type Scale - Reduced */
   --font-size-14: 0.875rem;
@@ -416,11 +416,35 @@ p {
   background-color: var(--color-blue);
   color: var(--color-white);
   border-color: var(--color-blue);
+  box-shadow: 0 4px 12px rgba(0, 61, 122, 0.3);
+  font-weight: var(--font-weight-bold);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary:hover {
   background-color: var(--color-black);
   border-color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 61, 122, 0.4);
 }
 
 .btn-outline {
@@ -704,7 +728,7 @@ p {
 }
 
 .contact-page .lead {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .calendly-embed {
@@ -787,13 +811,13 @@ p {
 }
 
 .blog-meta {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.85);
   font-size: var(--font-size-14);
   margin-bottom: var(--space-24);
 }
 
 .blog-description {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.7;
   margin-bottom: var(--space-32);
 }
@@ -1415,7 +1439,106 @@ footer {
 }
 
 /* ============================================
-   13. CONTACT FORM STYLES (Zapier Integration)
+   13. 404 ERROR PAGE STYLES
+   ============================================ */
+
+.error-page {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-96) 0;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-number {
+  font-size: 120px;
+  font-weight: var(--font-weight-black);
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  margin-bottom: var(--space-24);
+  letter-spacing: -0.05em;
+}
+
+.error-title {
+  color: var(--color-white);
+  font-size: var(--font-size-48);
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--space-24);
+}
+
+.error-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-size-18);
+  line-height: 1.6;
+  margin-bottom: var(--space-48);
+}
+
+.error-cta {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  margin-bottom: var(--space-64);
+  flex-wrap: wrap;
+}
+
+.error-links {
+  margin-top: var(--space-48);
+}
+
+.error-suggestion {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-size-14);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-16);
+}
+
+.error-suggestions-list {
+  display: flex;
+  gap: var(--space-24);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-link {
+  color: var(--color-white);
+  font-size: var(--font-size-16);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color var(--transition-fast);
+}
+
+.error-link:hover {
+  color: var(--color-blue);
+}
+
+@media (max-width: 768px) {
+  .error-number {
+    font-size: 80px;
+  }
+  
+  .error-title {
+    font-size: var(--font-size-32);
+  }
+  
+  .error-cta {
+    flex-direction: column;
+  }
+  
+  .error-suggestions-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ============================================
+   14. CONTACT FORM STYLES (Zapier Integration)
    ============================================ */
 
 .contact-form-section {
@@ -1591,5 +1714,184 @@ footer {
   body {
     background: white;
     color: black;
+  }
+}
+
+/* ============================================
+   FORM CHECKBOX STYLES
+   ============================================ */
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: var(--space-24);
+  margin-bottom: var(--space-24);
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--color-blue);
+}
+
+.form-checkbox label {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-checkbox label a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.form-checkbox label a:hover {
+  color: var(--color-white);
+}
+
+/* ============================================
+   PRIVACY PAGE STYLES
+   ============================================ */
+
+.privacy-page {
+  padding: calc(var(--nav-height) + var(--space-64)) var(--space-16) var(--space-96);
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.privacy-page .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: var(--space-48);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.privacy-page .page-title {
+  color: var(--color-white);
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-48);
+  text-align: left;
+}
+
+.privacy-meta {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-32);
+  font-size: 1rem;
+}
+
+.privacy-intro {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-48);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.privacy-section-title {
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-24);
+  padding-bottom: var(--space-16);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.privacy-subsection-title {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--font-size-xl);
+  margin-top: var(--space-32);
+  margin-bottom: var(--space-16);
+}
+
+.privacy-text {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-24);
+  line-height: 1.8;
+}
+
+.privacy-page ul,
+.privacy-page ol {
+  margin-left: var(--space-32);
+  margin-bottom: var(--space-24);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+}
+
+.privacy-page li {
+  margin-bottom: var(--space-12);
+}
+
+.privacy-link {
+  color: var(--color-blue);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.privacy-link:hover {
+  color: var(--color-accent);
+}
+
+.privacy-contact-box {
+  padding: var(--space-24);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-48);
+}
+
+.privacy-contact-box p {
+  margin-bottom: var(--space-12);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.privacy-contact-box p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-contact-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.privacy-contact-link:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.privacy-cta {
+  text-align: center;
+  margin-top: var(--space-64);
+}
+
+.cookie-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.cookie-link:hover {
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .privacy-page .container {
+    padding: var(--space-32) var(--space-24);
+  }
+  
+  .privacy-page .page-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .privacy-section-title {
+    font-size: var(--font-size-xl);
   }
 }
